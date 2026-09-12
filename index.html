@@ -162,6 +162,39 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+<!-- Scroll Progress Bar Script -->
+		<script>
+			document.addEventListener('DOMContentLoaded', () => {
+				const articles = document.querySelectorAll('#main article');
+				const progressBar = document.getElementById('progress-bar');
 
+				// Calculate scroll depth inside each article
+				articles.forEach(article => {
+					article.addEventListener('scroll', () => {
+						const scrollTop = article.scrollTop;
+						const scrollHeight = article.scrollHeight - article.clientHeight;
+						
+						// Prevent division by zero if article has no scrollable content
+						const scrollPercent = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+						progressBar.style.width = scrollPercent + '%';
+					});
+				});
+
+				// Reset the progress bar to 0% when the close button is clicked
+				const closeButtons = document.querySelectorAll('#main article .close');
+				closeButtons.forEach(btn => {
+					btn.addEventListener('click', () => {
+						progressBar.style.width = '0%';
+					});
+				});
+				
+				// Reset the progress bar to 0% if the user clicks the background to close
+				document.getElementById('main').addEventListener('click', (e) => {
+					if (e.target.id === 'main') {
+						progressBar.style.width = '0%';
+					}
+				});
+			});
+		</script>
 	</body>
 </html>
