@@ -33,28 +33,44 @@ mark { background-color: transparent; color: inherit; }
 input::-moz-focus-inner { border: 0; padding: 0; }
 input, select, textarea { -moz-appearance: none; -webkit-appearance: none; -ms-appearance: none; appearance: none; }
 
-/* Scrollbar */
-/* Hide the scrollbar globally for the main menu */
+/* Scrollbar Control */
+html, body {
+    overflow: hidden; /* Locks the background menu page so no native scrollbar can generate */
+    scrollbar-width: none; /* Hides scrollbar in Firefox */
+    -ms-overflow-style: none; /* Hides scrollbar in IE/Edge */
+}
+
+/* Hide scrollbar globally for WebKit browsers (Chrome, Safari, Opera) */
 ::-webkit-scrollbar { 
-	width: 0px; 
-	background: transparent; 
+    width: 0px; 
+    height: 0px;
+    display: none; 
 }
 
-/* Enable and style the scrollbar ONLY inside the article tabs */
+/* Re-enable and style the scrollbar ONLY inside the open article tabs */
+#main article {
+    overflow-y: auto; /* Allows internal tab scrolling */
+    scrollbar-width: thin; /* Restores scrollbar for Firefox inside tabs */
+    -ms-overflow-style: auto; /* Restores scrollbar for Edge inside tabs */
+}
+
 #main article::-webkit-scrollbar { 
-	width: 8px; 
-}
-#main article::-webkit-scrollbar-track { 
-	background: #0a192f; 
-}
-#main article::-webkit-scrollbar-thumb { 
-	background: #ff8c42; 
-	border-radius: 4px; 
-}
-#main article::-webkit-scrollbar-thumb:hover { 
-	background: #ffa86e; 
+    display: block !important;
+    width: 8px !important; 
 }
 
+#main article::-webkit-scrollbar-track { 
+    background: #0a192f !important; 
+}
+
+#main article::-webkit-scrollbar-thumb { 
+    background: #ff8c42 !important; 
+    border-radius: 4px; 
+}
+
+#main article::-webkit-scrollbar-thumb:hover { 
+    background: #ffa86e !important; 
+}
 /* Progress Bar */
 #progress-bar {
 	position: fixed;
