@@ -88,19 +88,25 @@
 							<article id="contact">
 								<div class="article-header"><span class="eyebrow">03 / CONTACT</span><h2 class="major">Let’s Talk</h2></div>
 								<p>Interested in working together or just want to say hi? Drop me a message below or connect with me on social media.</p>
-								<form method="post" action="#" onsubmit="return false;">
+								<form action="https://formsubmit.co/dastanaristo08@gmail.com" method="POST">
+									<!-- FormSubmit settings -->
+									<input type="hidden" name="_subject" value="New message from your portfolio, Dan." />
+																		<input type="hidden" name="_template" value="table" />
+									<!-- Honeypot: silently rejects bots that fill this field -->
+									<input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none" />
+
 									<div class="fields">
 										<div class="field half">
 											<label for="name">Name</label>
-											<input type="text" name="name" id="name" required />
+											<input type="text" name="name" id="name" autocomplete="name" placeholder="Your name" required />
 										</div>
 										<div class="field half">
 											<label for="email">Email</label>
-											<input type="email" name="email" id="email" required />
+											<input type="email" name="email" id="email" autocomplete="email" placeholder="you@example.com" required />
 										</div>
 										<div class="field">
 											<label for="message">Message</label>
-											<textarea name="message" id="message" rows="4" required></textarea>
+											<textarea name="message" id="message" rows="6" placeholder="Tell me what you'd like to talk about..." required></textarea>
 										</div>
 									</div>
 									<ul class="actions">
