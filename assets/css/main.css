@@ -33,56 +33,43 @@ mark { background-color: transparent; color: inherit; }
 input::-moz-focus-inner { border: 0; padding: 0; }
 input, select, textarea { -moz-appearance: none; -webkit-appearance: none; -ms-appearance: none; appearance: none; }
 
-/* Scrollbar Control */
+/* Total Scrollbar Suppression on Main View */
 html, body {
-    overflow: hidden; /* Locks the background menu page so no native scrollbar can generate */
-    scrollbar-width: none; /* Hides scrollbar in Firefox */
-    -ms-overflow-style: none; /* Hides scrollbar in IE/Edge */
+    overflow: hidden !important;
+    height: 100vh !important;
+    scrollbar-width: none !important;
 }
 
-/* Hide scrollbar globally for WebKit browsers (Chrome, Safari, Opera) */
-::-webkit-scrollbar { 
-    width: 0px; 
-    height: 0px;
-    display: none; 
+body::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
 }
 
-/* Re-enable and style the scrollbar ONLY inside the open article tabs */
+/* Tab Scrollbars */
 #main article {
-    overflow-y: auto; /* Allows internal tab scrolling */
-    scrollbar-width: thin; /* Restores scrollbar for Firefox inside tabs */
-    -ms-overflow-style: auto; /* Restores scrollbar for Edge inside tabs */
+    overflow-y: auto !important;
+    scrollbar-width: thin;
+    scrollbar-color: #ff8c42 #0a192f;
 }
 
-#main article::-webkit-scrollbar { 
+#main article::-webkit-scrollbar {
+    width: 8px !important;
     display: block !important;
-    width: 8px !important; 
 }
 
-#main article::-webkit-scrollbar-track { 
-    background: #0a192f !important; 
+#main article::-webkit-scrollbar-track {
+    background: #0a192f !important;
 }
 
-#main article::-webkit-scrollbar-thumb { 
-    background: #ff8c42 !important; 
-    border-radius: 4px; 
+#main article::-webkit-scrollbar-thumb {
+    background: #ff8c42 !important;
+    border-radius: 4px;
 }
 
-#main article::-webkit-scrollbar-thumb:hover { 
-    background: #ffa86e !important; 
+#main article::-webkit-scrollbar-thumb:hover {
+    background: #ffa86e !important;
 }
-/* Progress Bar */
-#progress-bar {
-	position: fixed;
-	top: 0; left: 0;
-	height: 4px;
-	background: #ff8c42;
-	box-shadow: 0 0 15px rgba(255, 140, 66, 0.8);
-	z-index: 10000;
-	width: 0%;
-	/* Transition removed so JS can update it in real-time without lag */
-}
-/* Note: Make sure to DELETE the old `body.is-article-visible #progress-bar { width: 100%; }` rule completely */
 /* Type */
 html { font-size: 16pt; }
 @media screen and (max-width: 1680px) { html { font-size: 12pt; } }
