@@ -34,19 +34,25 @@ input::-moz-focus-inner { border: 0; padding: 0; }
 input, select, textarea { -moz-appearance: none; -webkit-appearance: none; -ms-appearance: none; appearance: none; }
 
 /* Scrollbar */
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: #0a192f; }
-::-webkit-scrollbar-thumb { background: #ff8c42; border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: #ffa86e; }
+/* Hide the scrollbar globally for the main menu */
+::-webkit-scrollbar { 
+	width: 0px; 
+	background: transparent; 
+}
 
-/* Basic */
-@-ms-viewport { width: device-width; }
-@media screen and (max-width: 480px) { html, body { min-width: 320px; } }
-html { box-sizing: border-box; scroll-behavior: smooth; }
-*, *:before, *:after { box-sizing: inherit; }
-body { background: #1b1f22; overflow-x: hidden; }
-body.is-preload *, body.is-preload *:before, body.is-preload *:after {
-	animation: none !important; transition: none !important;
+/* Enable and style the scrollbar ONLY inside the article tabs */
+#main article::-webkit-scrollbar { 
+	width: 8px; 
+}
+#main article::-webkit-scrollbar-track { 
+	background: #0a192f; 
+}
+#main article::-webkit-scrollbar-thumb { 
+	background: #ff8c42; 
+	border-radius: 4px; 
+}
+#main article::-webkit-scrollbar-thumb:hover { 
+	background: #ffa86e; 
 }
 
 /* Progress Bar */
@@ -58,12 +64,9 @@ body.is-preload *, body.is-preload *:before, body.is-preload *:after {
 	box-shadow: 0 0 15px rgba(255, 140, 66, 0.8);
 	z-index: 10000;
 	width: 0%;
-	transition: width 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+	/* Transition removed so JS can update it in real-time without lag */
 }
-body.is-article-visible #progress-bar {
-	width: 100%;
-}
-
+/* Note: Make sure to DELETE the old `body.is-article-visible #progress-bar { width: 100%; }` rule completely */
 /* Type */
 html { font-size: 16pt; }
 @media screen and (max-width: 1680px) { html { font-size: 12pt; } }
