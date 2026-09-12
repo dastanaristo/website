@@ -162,7 +162,10 @@
 			<script src="assets/js/main.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        // Close buttons and click-outside behavior will still handle tab states cleanly
+        // Restores the initial page-load fade transition
+        window.setTimeout(() => {
+            document.body.classList.remove('is-preload');
+        }, 100);
     });
 </script>
 	</body>
