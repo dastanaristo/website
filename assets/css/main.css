@@ -327,10 +327,10 @@ body.is-article-visible #header { transform: scale(0.95); filter: blur(0.1rem); 
 }
 
 /* Add your specific city images here */
-#intro:before   { background-image: url('../../images/parallax-city-1.jpg'); }
-#work:before    { background-image: url('../../images/parallax-city-2.jpg'); }
-#about:before   { background-image: url('../../images/parallax-city-3.jpg'); }
-#contact:before { background-image: url('../../images/parallax-city-4.jpg'); }
+#intro:before   { background-image: url('../../images/blurred.png'); }
+#work:before    { background-image: url('../../images/blurred.png'); }
+#about:before   { background-image: url('../../images/blurred.png'); }
+#contact:before { background-image: url('../../images/blurred.png'); }
 
 /* Dynamic Close Button */
 #main article .close {
