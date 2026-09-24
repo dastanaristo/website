@@ -88,10 +88,10 @@
 							<article id="contact">
 								<div class="article-header"><span class="eyebrow">03 / CONTACT</span><h2 class="major">Let’s Talk</h2></div>
 								<p>Interested in working together or just want to say hi? Drop me a message below or connect with me on social media.</p>
-								<form action="https://formsubmit.co/1043d72f8a6bc60fdde4719c2a98394a" method="POST">
+								<form action="https://formsubmit.co/1043d72f8a6bc60fdde4719c2a98394a" method="POST" enctype="multipart/form-data" class="contact-form">
 									<!-- FormSubmit settings -->
 									<input type="hidden" name="_subject" value="New message from your portfolio, Dan." />
-																		<input type="hidden" name="_template" value="table" />
+									<input type="hidden" name="_template" value="table" />
 									<!-- Honeypot: silently rejects bots that fill this field -->
 									<input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none" />
 
@@ -105,14 +105,34 @@
 											<input type="email" name="email" id="email" autocomplete="email" placeholder="you@example.com" required />
 										</div>
 										<div class="field">
+											<label for="subject">Subject <span class="optional">OPTIONAL</span></label>
+											<input type="text" name="subject" id="subject" placeholder="Project inquiry, collaboration, hello..." />
+										</div>
+										<div class="field">
 											<label for="message">Message</label>
-											<textarea name="message" id="message" rows="6" placeholder="Tell me what you'd like to talk about..." required></textarea>
+											<div class="format-hint" aria-hidden="true"><span>Tip:</span> Use a blank line to separate paragraphs. Bullets can start with <code>-</code>.</div>
+											<textarea name="message" id="message" rows="8" placeholder="Tell me what you'd like to talk about...
+
+You can include project details, links, questions, or next steps." required></textarea>
+										</div>
+										<div class="field attachment-field">
+											<label for="attachment">Attachment <span class="optional">OPTIONAL</span></label>
+											<div class="file-drop">
+												<input type="file" name="attachment" id="attachment" accept="image/*,.pdf,.zip,.rar,.txt,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.blend,.gd,.lua,.py,.html,.css,.js" />
+												<div class="file-drop-content">
+													<span class="file-icon" aria-hidden="true">↥</span>
+													<strong>Choose a file</strong>
+													<span>Images, PDFs, project files and more · max 10 MB total</span>
+											</div>
+											</div>
 										</div>
 									</div>
+									</div>
 									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="primary" /></li>
+										<li><input type="submit" value="Send Message ↗" class="primary" /></li>
 										<li><input type="reset" value="Clear" /></li>
 									</ul>
+									<p class="form-note">Your message and attachment are sent securely through FormSubmit. File uploads are limited to 10 MB total.</p>
 								</form>
 								<ul class="icons">
 									<li><a href="#" aria-disabled="true" class="icon brands fa-twitter" target="_blank"><span class="label">Twitter</span></a></li>
