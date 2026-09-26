@@ -685,3 +685,66 @@ html, body { width: 100%; min-width: 0; }
 		height: 88vh;
 	}
 }
+
+/* === Final size + city-scene pass ===
+   Homepage UI is intentionally smaller; article panels are intentionally larger. */
+
+/* Smaller homepage composition without changing its layout geometry. */
+body:not(.is-article-visible) #header {
+	transform: scale(.84);
+	transform-origin: center top;
+}
+body:not(.is-article-visible) #footer {
+	transform: scale(.84);
+	transform-origin: center bottom;
+}
+
+/* Larger article panels. */
+#main article {
+	width: min(1040px, calc(100vw - 3rem), calc(100vh * 1.42));
+	height: min(820px, calc(100vh - 3rem));
+	padding: clamp(2rem, 3.2vw, 3.25rem);
+	background: rgba(6, 14, 27, .42);
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+}
+
+/* Make the city image a real visible layer inside each article. */
+#main article:before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	pointer-events: none;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	opacity: .68 !important;
+	filter: saturate(.95) contrast(1.04);
+	border-radius: inherit;
+}
+
+#intro:before   { background-image: url('../../images/parallax-city-1.jpg') !important; }
+#work:before    { background-image: url('../../images/parallax-city-2.jpg') !important; }
+#about:before   { background-image: url('../../images/parallax-city-3.jpg') !important; }
+#contact:before { background-image: url('../../images/parallax-city-4.jpg') !important; }
+
+#main article > * {
+	position: relative;
+	z-index: 1;
+}
+
+@media screen and (max-width: 800px) {
+	body:not(.is-article-visible) #header { transform: scale(.9); }
+	#main article {
+		width: 94vw;
+		height: 90vh;
+		padding: 2rem 1.5rem;
+	}
+}
+
+@media screen and (max-width: 520px) {
+	body:not(.is-article-visible) #header { transform: scale(.94); }
+	#main article { width: 96vw; height: 92vh; }
+}
