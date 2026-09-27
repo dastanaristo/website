@@ -827,3 +827,37 @@ body:not(.is-article-visible) #header .content {
 	border-top: 1px solid rgba(255, 255, 255, 0.3) !important;
 	border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
 }
+
+/* === Transition cleanup ===
+   Keep the homepage hero styling consistent while the article opens.
+   The previous conditional rules briefly exposed Dimension's original
+   boxed header during the fade/scale transition. */
+body.is-article-visible #header .content {
+	border-top: 1px solid rgba(255, 255, 255, 0.3) !important;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+	border-left: 0 !important;
+	border-right: 0 !important;
+	border-radius: 0 !important;
+	background: transparent !important;
+	box-shadow: none !important;
+	backdrop-filter: none !important;
+	-webkit-backdrop-filter: none !important;
+}
+
+body.is-article-visible #header .content .inner {
+	border: 0 !important;
+	border-radius: 0 !important;
+	background: transparent !important;
+	box-shadow: none !important;
+}
+
+/* Keep the current title treatment during the fade instead of reverting
+   to the original HTML5 UP card styling for a frame. */
+body.is-article-visible #header h1 {
+	white-space: nowrap !important;
+	text-wrap: nowrap !important;
+	background: linear-gradient(100deg, #fff 15%, var(--cyan) 85%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+}
