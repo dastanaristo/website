@@ -782,3 +782,48 @@ body:not(.is-article-visible) #header h1 {
 		letter-spacing: .055em;
 	}
 }
+
+/* === Final homepage hero cleanup ===
+   Keep the current colors/effects, remove the hero card, and force the
+   full name to stay on one line on desktop. */
+body:not(.is-article-visible) #header .content {
+	width: min(1200px, 94vw) !important;
+	border: 0 !important;
+	background: transparent !important;
+	box-shadow: none !important;
+	backdrop-filter: none !important;
+	-webkit-backdrop-filter: none !important;
+}
+
+body:not(.is-article-visible) #header .content .inner {
+	border: 0 !important;
+	background: transparent !important;
+	box-shadow: none !important;
+}
+
+body:not(.is-article-visible) #header h1 {
+	white-space: nowrap !important;
+	text-wrap: nowrap !important;
+	width: 100% !important;
+	max-width: none !important;
+	font-size: clamp(2rem, 3.1vw, 3.5rem) !important;
+	letter-spacing: .11em !important;
+	line-height: 1 !important;
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+
+@media screen and (max-width: 760px) {
+	body:not(.is-article-visible) #header h1 {
+		font-size: clamp(1.35rem, 5vw, 2.25rem) !important;
+		letter-spacing: .055em !important;
+	}
+}
+
+/* === Homepage title lines ===
+   Restore the original Dimension-style horizontal dividers without bringing
+   back the old boxed hero. */
+body:not(.is-article-visible) #header .content {
+	border-top: 1px solid rgba(255, 255, 255, 0.3) !important;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
